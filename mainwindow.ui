@@ -351,7 +351,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>310</y>
+      <y>280</y>
       <width>761</width>
       <height>161</height>
      </rect>
@@ -392,19 +392,14 @@
        <x>410</x>
        <y>20</y>
        <width>341</width>
-       <height>81</height>
+       <height>91</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="settings_game_frame">
-      <item row="0" column="0">
-       <widget class="QLabel" name="settings_name_label">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="settings_min_range_btn">
         <property name="text">
-         <string>Имя:</string>
+         <string>0</string>
         </property>
        </widget>
       </item>
@@ -420,17 +415,17 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="settings_min_range_btn">
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="1">
        <widget class="QLineEdit" name="settings_name_btn">
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="settings_max_range_btn">
+        <property name="text">
+         <string>100</string>
         </property>
        </widget>
       </item>
@@ -446,10 +441,15 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="settings_max_range_btn">
+      <item row="0" column="0">
+       <widget class="QLabel" name="settings_name_label">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
-         <string>100</string>
+         <string>Имя:</string>
         </property>
        </widget>
       </item>
@@ -539,14 +539,16 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="digit">
+       <widget class="QSpinBox" name="digit">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
-        <property name="text">
-         <string>0</string>
+        <property name="maximum">
+         <number>999999</number>
         </property>
        </widget>
       </item>
@@ -575,53 +577,69 @@
       <string>Проверить</string>
      </property>
     </widget>
-    <widget class="QWidget" name="verticalLayoutWidget">
+    <widget class="QFrame" name="frame_2">
      <property name="geometry">
       <rect>
        <x>330</x>
        <y>50</y>
        <width>41</width>
-       <height>62</height>
+       <height>61</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QPushButton" name="plus_one_btn">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>+ 1</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="minus_one_btn">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>- 1</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>41</width>
+        <height>62</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="plus_one_btn">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>+ 1</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="minus_one_btn">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>- 1</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
    <widget class="QFrame" name="name_frame">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>220</x>
       <y>30</y>
-      <width>391</width>
+      <width>361</width>
       <height>41</height>
      </rect>
     </property>
@@ -637,7 +655,7 @@
     <widget class="QLabel" name="game_name">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>80</x>
        <y>0</y>
        <width>191</width>
        <height>41</height>
@@ -655,40 +673,222 @@
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="exit_btn">
+   <widget class="QFrame" name="preset_frame">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>530</y>
-      <width>117</width>
-      <height>30</height>
+      <x>19</x>
+      <y>449</y>
+      <width>501</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(226, 226, 226)
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Готовые пресеты</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>481</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Легко</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="preset_btn3">
+        <property name="text">
+         <string>0-60</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="preset_btn5">
+        <property name="text">
+         <string>0-130</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="preset_btn4">
+        <property name="text">
+         <string>0-75</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Нереально</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QPushButton" name="preset_btn9">
+        <property name="text">
+         <string>0-3000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QPushButton" name="preset_btn10">
+        <property name="text">
+         <string>0-10000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="preset_btn6">
+        <property name="text">
+         <string>0-150</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="preset_btn8">
+        <property name="text">
+         <string>0-500</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="preset_btn7">
+        <property name="text">
+         <string>0-350</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="preset_btn2">
+        <property name="text">
+         <string>0-35</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Тяжело</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Средне</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Оч. тяжело</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="preset_btn1">
+        <property name="text">
+         <string>0-30</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>490</y>
+      <width>231</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>11</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Выйти</string>
+     <string>Использовать предыдущее имя</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="reset_btn">
+   <widget class="QPushButton" name="anonim_btn">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>530</y>
-      <width>117</width>
-      <height>30</height>
+      <x>540</x>
+      <y>450</y>
+      <width>231</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>11</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>Сбросить</string>
+     <string>Стать анонимом</string>
     </property>
    </widget>
   </widget>

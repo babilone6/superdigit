@@ -18,6 +18,17 @@ class MainWindow(QMainWindow):
         self.start_or_exit_game.clicked.connect(self.start_stop_game)
         self.plus_one_btn.clicked.connect(self.plus_one)
         self.minus_one_btn.clicked.connect(self.minus_one)
+        self.preset_btn1.clicked.connect(self.preset)
+        self.preset_btn2.clicked.connect(self.preset)
+        self.preset_btn3.clicked.connect(self.preset)
+        self.preset_btn4.clicked.connect(self.preset)
+        self.preset_btn5.clicked.connect(self.preset)
+        self.preset_btn6.clicked.connect(self.preset)
+        self.preset_btn7.clicked.connect(self.preset)
+        self.preset_btn8.clicked.connect(self.preset)
+        self.preset_btn9.clicked.connect(self.preset)
+        self.preset_btn10.clicked.connect(self.preset)
+        self.anonim_btn.clicked.connect(self.anonim_name)
 
     def make_guess(self):
         if self.is_game == False:
@@ -69,24 +80,35 @@ class MainWindow(QMainWindow):
             self.start_or_exit_game.setStyleSheet("background-color: rgb(112, 222, 125);")
             self.is_chenge.setText("Да")
             self.attempt_cd.display(0)
+            self.result.setText("Неизвестно")
             return
 
     def plus_one(self):
         try:
-            self.digit.setText(str(int(self.digit.text()) + 1))
+            self.digit.setValue(int(self.digit.value()) + 1)
         except:
             QMessageBox.critical(self, "Ошибка!", "Введите число!")
             return
 
 
     def minus_one(self):
-        if int(self.digit.text()) == 0:
+        if int(self.digit.value()) == 0:
             return
         try:
-            self.digit.setText(str(int(self.digit.text()) - 1))
+            self.digit.setValue(int(self.digit.value()) - 1)
         except:
             QMessageBox.critical(self, "Ошибка!", "Введите число!")
             return
+
+    def preset(self):
+        btn = self.sender()
+        min_range, max_range = btn.text().split("-")
+        self.settings_min_range_btn.setText(min_range)
+        self.settings_max_range_btn.setText(max_range)
+
+    def anonim_name(self):
+        self.settings_name_btn.setText("Аноним")
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

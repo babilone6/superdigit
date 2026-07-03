@@ -112,7 +112,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Меньше</string>
+      <string>Неизвестно</string>
      </property>
     </widget>
     <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -145,7 +145,7 @@
          </font>
         </property>
         <property name="text">
-         <string>15</string>
+         <string>-</string>
         </property>
        </widget>
       </item>
@@ -220,7 +220,7 @@
          </font>
         </property>
         <property name="text">
-         <string>15</string>
+         <string>-</string>
         </property>
        </widget>
       </item>
@@ -232,7 +232,7 @@
          </font>
         </property>
         <property name="text">
-         <string>51</string>
+         <string>-</string>
         </property>
        </widget>
       </item>
@@ -244,7 +244,7 @@
          </font>
         </property>
         <property name="text">
-         <string>100</string>
+         <string>-</string>
         </property>
        </widget>
       </item>
@@ -256,7 +256,7 @@
          </font>
         </property>
         <property name="text">
-         <string>0</string>
+         <string>-</string>
         </property>
        </widget>
       </item>
@@ -280,7 +280,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Иван</string>
+         <string>-</string>
         </property>
        </widget>
       </item>
@@ -304,7 +304,7 @@
          </font>
         </property>
         <property name="text">
-         <string>50</string>
+         <string>-</string>
         </property>
        </widget>
       </item>
@@ -421,10 +421,18 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="settings_min_range_btn"/>
+       <widget class="QLineEdit" name="settings_min_range_btn">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="settings_name_btn"/>
+       <widget class="QLineEdit" name="settings_name_btn">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="settings_max_range_label">
@@ -439,7 +447,11 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="settings_max_range_btn"/>
+       <widget class="QLineEdit" name="settings_max_range_btn">
+        <property name="text">
+         <string>100</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -454,8 +466,13 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(112, 222, 125);</string>
      </property>
      <property name="text">
       <string>Начать игру</string>
@@ -528,6 +545,9 @@
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="text">
+         <string>0</string>
+        </property>
        </widget>
       </item>
      </layout>
@@ -535,20 +555,65 @@
     <widget class="QPushButton" name="check_btn">
      <property name="geometry">
       <rect>
-       <x>84</x>
+       <x>34</x>
        <y>122</y>
-       <width>181</width>
+       <width>331</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(112, 222, 125);</string>
      </property>
      <property name="text">
       <string>Проверить</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>50</y>
+       <width>41</width>
+       <height>62</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="plus_one_btn">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>+ 1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="minus_one_btn">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>- 1</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QFrame" name="name_frame">

@@ -1,2 +1,5 @@
 .venv/
 .idea/
+*.db
+*.log
+*.sqlite3

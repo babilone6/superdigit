@@ -28,7 +28,7 @@ class DataBase:
 
 
     def add_record(self, name: str, record: int, min_range: int, max_range: int, secret: int, attempts: int, last_guess: int):
-        self.cursor.execute(f"INSERT INTO records (name, record, min_range, max_range, secret, attempts, last_guess) VALUES ('{name}', {record}, {min_range}, {max_range}, {secret}, {attempts}, {last_guess})")
+        self.cursor.execute("INSERT INTO records (name, record, min_range, max_range, secret, attempts, last_guess) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, record, min_range, max_range, secret, attempts, last_guess))
         self.conn.commit()
 
     def get_record(self):

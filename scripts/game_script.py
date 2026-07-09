@@ -9,6 +9,7 @@ class Game:
         self.secret = random.randint(min_range, max_range)
         self.attempts = 0
         self.last_guess = 0
+        self.record = 0
         self.is_win = False
 
     def guess(self, digit):
@@ -23,4 +24,5 @@ class Game:
         if digit == self.secret:
             self.attempts +=1
             self.is_win = True
+            self.record = (self.max_range - self.min_range) * (1 / self.attempts)
             return "Вы угадали"

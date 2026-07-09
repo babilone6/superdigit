@@ -47,7 +47,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Загадано число: от 0 до 100</string>
+      <string>Введите имя и начните игру</string>
      </property>
     </widget>
     <widget class="QWidget" name="horizontalLayoutWidget">
@@ -855,7 +855,7 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="use_last_name_btn">
     <property name="geometry">
      <rect>
       <x>540</x>

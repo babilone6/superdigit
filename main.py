@@ -36,15 +36,7 @@ class MainWindow(QMainWindow):
         self.use_last_name_btn.clicked.connect(self.last_name)
 
         self.db = DataBase()
-        record = self.db.get_record()
-        if record != None:
-            record = list(map(str, record))
-            self.name.setText(record[0])
-            self.min_range.setText(record[1])
-            self.max_range.setText(record[2])
-            self.secret.setText(record[3])
-            self.attempts.setText(record[4])
-            self.last_guess.setText(record[5])
+        self.update_record_table()
 
     def start_stop_game(self):
         if self.is_game == False:
@@ -94,17 +86,8 @@ class MainWindow(QMainWindow):
         self.our_digit.setText(str(digit))
         if self.game.is_win == True:
             self.is_game = False
-            self.db.add_record(self.game.name, self.game.record, self.game.min_range, self.game.max_range,
-                               self.game.secret, self.game.attempts, self.game.last_guess)
-            record = self.db.get_record()
-            if record is None:
-                record = list(map(str, record))
-                self.name.setText(record[0])
-                self.min_range.setText(record[1])
-                self.max_range.setText(record[2])
-                self.secret.setText(record[3])
-                self.attempts.setText(record[4])
-                self.last_guess.setText(record[5])
+            self.db.add_record(self.game.name, self.game.record, self.game.min_range, self.game.max_range, self.game.secret, self.game.attempts, self.game.last_guess)
+            self.update_record_table()
             self.game = 0
             self.start_or_exit_game.setText("Начать игру")
             self.start_or_exit_game.setStyleSheet("background-color: rgb(112, 222, 125);")
@@ -147,6 +130,17 @@ class MainWindow(QMainWindow):
 
     def closeEvent(self, event):
         self.db.close()
+
+    def update_record_table(self):
+        record = self.db.get_record()
+        if not record is None:
+            record = list(map(str, record))
+            self.name.setText(record[0])
+            self.min_range.setText(record[1])
+            self.max_range.setText(record[2])
+            self.secret.setText(record[3])
+            self.attempts.setText(record[4])
+            self.last_guess.setText(record[5])
 
 
 if __name__ == '__main__':
